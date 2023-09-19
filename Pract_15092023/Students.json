@@ -1,0 +1,40 @@
+{
+  "students": [
+    {
+      "Name": "Ivan",
+      "LastName": "Ivanov",
+      "BirthDate": "06/06/2005",
+      "MailAddress": "some@gmail.com",
+      "PhoneNumber": "380548622456",
+      "StudentCard": {
+        "CardNumber": "GE-153455",
+        "ExpireDate": "09/16/2025",
+        "IsActive": true
+      }
+    },
+    {
+      "Name": "Roman",
+      "LastName": "Romanov",
+      "BirthDate": "05/18/2005",
+      "MailAddress": "otherMail@gmail.com",
+      "PhoneNumber": "3805445342456",
+      "StudentCard": {
+        "CardNumber": "GA-153455",
+        "ExpireDate": "09/16/2025",
+        "IsActive": true
+      }
+    },
+    {
+      "Name": "Kolya",
+      "LastName": "Svatov",
+      "BirthDate": "05/05/2004",
+      "MailAddress": "moreEmail@gmail.com",
+      "PhoneNumber": "380544372456",
+      "StudentCard": {
+        "CardNumber": "GT-153455",
+        "ExpireDate": "09/16/2025",
+        "IsActive": true
+      }
+    }
+  ]
+}
