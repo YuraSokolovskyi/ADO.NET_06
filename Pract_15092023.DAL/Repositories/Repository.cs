@@ -38,6 +38,7 @@ namespace Pract_15092023.DAL.Repositories
         public void Remove(T entity)
         {
             _dbSet.Remove(entity);
+            _context.SaveChanges();
         }
 
         public void Update(T entity)

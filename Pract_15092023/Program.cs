@@ -23,19 +23,35 @@ namespace Pract_15092023
             var studentsRepository = new Repository<Student>(context);
             StudentsProvider studentsProvider = new StudentsProvider(studentsRepository);
             
-            
-            studentsProvider.UpdateName(1, "Ivan");
-            
-
             var cardsRepository = new Repository<StudentCard>(context);
             CardsProvider cardsProvider = new CardsProvider(cardsRepository);
             
-            // provider.AddStudents(students.Students);
-
+            
             List<Student> students = studentsProvider.GetStudents().ToList();
             List<StudentCard> cards = cardsProvider.GetCards().ToList();
             
-            foreach ( var student in students )
+            
+            // studentsProvider.UpdateName(1, "Ivan");
+            // studentsProvider.AddStudent(new Student()
+            // {
+            //     Name = "Romanova", 
+            //     LastName = "Romanov",
+            //     MailAddress = "otherMail@gmail.com",
+            //     PhoneNumber = "3805445342456",
+            //     BirthDate = new DateTime(2005, 5, 18, 12, 0, 0),
+            //     StudentCard = new StudentCard()
+            //     {
+            //         CardNumber = "GA-153456",
+            //         IsActive = true,
+            //         ExpireDate = new DateTime(2025, 9, 16, 12, 0, 0)
+            //     }
+            // });
+            
+            // provider.AddStudents(students.Students);
+            // studentsProvider.DeleteStudentById(5);
+            // studentsProvider.DeleteStudentByCardNumber("GA-153456");
+            
+            foreach ( var student in studentsProvider.GetStudents() )
             {
                 Console.WriteLine(
                     $@"Student Id: {student.Id}
