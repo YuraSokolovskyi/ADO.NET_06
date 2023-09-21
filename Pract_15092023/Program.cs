@@ -51,7 +51,7 @@ namespace Pract_15092023
             // studentsProvider.DeleteStudentById(5);
             // studentsProvider.DeleteStudentByCardNumber("GA-153456");
             
-            foreach ( var student in studentsProvider.GetStudents() )
+            foreach ( var student in studentsProvider.GetStudentsOlder(19) )
             {
                 Console.WriteLine(
                     $@"Student Id: {student.Id}

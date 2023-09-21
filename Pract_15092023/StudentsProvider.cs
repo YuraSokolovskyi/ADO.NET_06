@@ -76,6 +76,59 @@ namespace Pract_15092023
             return _studentRepository.GetAll().OrderByDescending(student => student.BirthDate).Take(numberOfStudents + 1).ToList();
         }
 
+        public List<Student> GetStudentsWithActiveCards()
+        {
+            return _studentRepository.GetAll().Where(student => student.StudentCard.IsActive).ToList();
+        }
+        
+        public List<Student> GetStudentsWithNotActiveCards()
+        {
+            return _studentRepository.GetAll().Where(student => !student.StudentCard.IsActive).ToList();
+        }
+
+        public List<Student> GetStudentsWithCardExpireDateAfter(DateTime date)
+        {
+            return _studentRepository.GetAll().Where(student => student.StudentCard.ExpireDate > date).ToList();
+        }
+        
+        public List<Student> GetStudentsWithCardExpireDateBefore(DateTime date)
+        {
+            return _studentRepository.GetAll().Where(student => student.StudentCard.ExpireDate < date).ToList();
+        }
+        
+        public List<Student> GetStudentsWithCardExpireDateEqual(DateTime date)
+        {
+            return _studentRepository.GetAll().Where(student => student.StudentCard.ExpireDate == date).ToList();
+        }
+
+        public List<Student> GetStudentsOlder(int age)
+        {
+            return _studentRepository.GetAll().Where(student => student.BirthDate <= DateTime.Today.AddYears(-age))
+                .ToList();
+        }
+        
+        public List<Student> GetStudentsYounger(int age)
+        {
+            return _studentRepository.GetAll().Where(student => student.BirthDate >= DateTime.Today.AddYears(-age))
+                .ToList();
+        }
+        
+        public List<Student> GetStudentsByAge(int age)
+        {
+            return _studentRepository.GetAll().Where(student => student.BirthDate.Year == DateTime.Today.AddYears(-age).Year)
+                .ToList();
+        }
+
+        public Student GetStudentWithEmail(string email)
+        {
+            return _studentRepository.GetAll().Where(student => student.MailAddress == email).Take(1).ToList()[0];
+        }
+        
+        public Student GetStudentWithPhone(string phone)
+        {
+            return _studentRepository.GetAll().Where(student => student.PhoneNumber == phone).Take(1).ToList()[0];
+        }
+
         public IEnumerable<Student> GetStudents() 
         { 
             return  _studentRepository.GetAll(); 
